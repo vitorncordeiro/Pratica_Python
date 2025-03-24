@@ -15,13 +15,19 @@ listasPerguntas = [
         'Resposta' : '3,14',
     }
 ]
+
 def perguntar(pergunta):
     acertos = 0
     print(listasPerguntas[pergunta]['Pergunta'])
+    print()
     opcoesFormatadas = listasPerguntas[pergunta]['Opcoes']
-    print(opcoesFormatadas)
-    respostaUser = input('Digite sua resposta: ')
-    if respostaUser == listasPerguntas[pergunta]['Resposta']:
+    op1, op2, op3, op4 = opcoesFormatadas
+    
+    print(f'0) {op1}\n1) {op2}\n2) {op3}\n3) {op4}')
+    print()
+    opcao = listasPerguntas[pergunta]['Opcoes']
+    respostaUser = int(input('Escolha uma opção: '))
+    if opcao[respostaUser] == listasPerguntas[pergunta]['Resposta']:
         print('Acertou')
         acertos += 1
     else:
@@ -30,4 +36,3 @@ contador = 0
 for i in listasPerguntas:
     perguntar(contador)
     contador = contador + 1
-    
