@@ -1,0 +1,11 @@
+#Crie uma função adiar_execucao(funcao, x, y) que não execute funcao imediatamente, mas retorne uma
+#  nova função sem argumentos. Quando essa função for chamada, ela deverá executar funcao(x, y) e 
+# retornar o resultado.
+def multiplicar(x,y):
+    return x*y
+def adiar(funcao, x, y):
+    
+    return funcao(x,y)
+    
+adiada = adiar(multiplicar, 4, 60)
+print(adiada)
