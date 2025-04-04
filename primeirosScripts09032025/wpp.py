@@ -9,7 +9,7 @@ navegador = webdriver.Firefox()
 navegador.get("https://web.whatsapp.com/")
 navegador.maximize_window() #maximiza a tela do navegador
 try:
-    espera = WebDriverWait(navegador, 150) #seta o tempo de espera
+    espera = WebDriverWait(navegador, 160) #seta o tempo de espera
     h1Conversas = espera.until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "Conversas")]')))
     # ^ define qual elemento vai ser o parametro para continuar o código. Nesse caso, é o h1 escrito "Conversas" do whatsapp, dando 150 segundos para o usuário escanear o qr code e entrar nessa pagina. O XPATH rígido é ruim, por isso tem esse aí que busca o "Conversas" escrito
 except TimeoutError: #TimeoutError é o erro q aparece caso o tempo do wait chegue a zero e o usuário não scaneou 
