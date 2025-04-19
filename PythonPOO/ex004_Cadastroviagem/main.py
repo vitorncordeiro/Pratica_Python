@@ -1,30 +1,27 @@
-#Fazer um cadastro de viagem (Deve pedir o nome do viajante, dar as opções de destino e imprimir a selecionada)
-from listaviagens import viagens
-nomeCompleto = input('Digite seu nome: ').split()
-nome = nomeCompleto.pop(0)
-sobrenome = ''
-for i in nomeCompleto:
-    sobrenome = sobrenome + ' ' + i
-print(f'{nome}{sobrenome}')
-
-class User:
-    def __init__(self, nome, sobrenome):
-        self.nome = nome
-        self.sobrenome = sobrenome
-
+import json
+caminho = "E:\\Documentos\\Trabalhos vitor - faculdade\\práticaEmPython\\PythonPOO\\ex004_Cadastroviagem\\listaviagens.json"
+with open(caminho, 'r+', encoding='UTF-8') as arquivo:
+    viagens = json.load(arquivo)
 class Viagem:
     def __init__(self, destino, preco):
         self.destino = destino
         self.preco = preco
-    def escolherViagem(self):
-        ...
-def fazerInstancia(**dict):
-    tupla = tuple(dict.items())
-    instancia = Viagem(tupla[0][0], tupla[0][1])
-    return instancia
-viagem1 = fazerInstancia(**viagens[0])
-viagem2 = fazerInstancia(**viagens[1])
-viagem3 = fazerInstancia(**viagens[2])
+    def adicionarViagem(self):
+        dicio = {self.destino: self.preco}
+        viagens.append(dicio)
+if __name__ == '__main__':
+    while True:
+        comando = input('Digite um comando: [C]adastrar Viagem [S]air\n').upper()
+        if comando.startswith('C'):
+            destino = input('Digite o destino da viagem: ')
+            preco = int(input('Digite o preco da viagem: '))
+            viagem1 = Viagem(destino, preco)
+            viagem1.adicionarViagem()
+        elif comando.startswith('S'):
+            break
+    with open(caminho, 'r+', encoding='UTF-8') as arquivo:
+        viagens = json.dump(viagens, arquivo)
+
 
 
 
