@@ -1,0 +1,1 @@
+viagens =[{'EUA': 900}, {'China': 1000}, {'Mexico', 500}, {'Darguestão', 600}]
