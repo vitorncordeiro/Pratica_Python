@@ -42,7 +42,7 @@ for restaurante in listaRestaurantes:
 
 
 Madero.increment_number_served(100)
-print('###########################')
+print('##########################')
 Madero.increment_number_served(400)
 print('###########################')
 Madero.decrement_number_served(50)
