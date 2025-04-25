@@ -1,17 +1,10 @@
 from pathlib import Path
 import datetime
 import time
-
+agora = str(datetime.datetime.now().strftime("%d%m%Y"))
 caminhos = []
-for j in range(10):
-    agora = str(datetime.datetime.now())
-    caminhoUnitario = ''
-    for i in agora:
-        if i.isalnum():
-            caminhoUnitario = caminhoUnitario + i
-    caminhoUnitario = Path(__file__).parent / caminhoUnitario
-    time.sleep(0.1)
-    caminhos.append(caminhoUnitario)
+caminho = Path(__file__)
+print(agora)
 
 
 class Log:
@@ -25,9 +18,9 @@ class Log:
 class LogFileMixin(Log):
     def _log(self, msgComposta):
         print(msgComposta)#esse print msg ta printando aquela parte inteira da linha 5,  --> f'Sucess: {msg}' <-- isso
-        for caminho in caminhos:
-            with open(caminho, 'w+') as arquivo:
-                arquivo.write(msgComposta)
+        
+        with open(caminho, 'a') as arquivo:
+            arquivo.write(msgComposta)
 
 msg1 = LogFileMixin()
 
