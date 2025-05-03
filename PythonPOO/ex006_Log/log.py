@@ -3,7 +3,7 @@ import datetime
 import time
 
 caminhos = []
-for j in range(10):
+for j in range(20):
     agora = str(datetime.datetime.now())
     caminhoUnitario = ''
     for i in agora:
