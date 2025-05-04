@@ -26,5 +26,7 @@ class SmartSpeaker(Eletrodomestico, InterfaceUSB):
         print('USB conectado')
 Alexa = SmartSpeaker('Alexa')
 print(Alexa.nome)
+JBL = SmartSpeaker('JBL')
+print(JBL.nome)
 Alexa.ligar()
 Alexa.conectar()
