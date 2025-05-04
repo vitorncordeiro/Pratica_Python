@@ -25,6 +25,8 @@ class SmartSpeaker(Eletrodomestico, InterfaceUSB):
         self.conectarUSB = True
         print('USB conectado')
     def desconectar(self):
+        self.concectarUSB = False
+        print('USB desconectado')
 Alexa = SmartSpeaker('Alexa')
 print(Alexa.nome)
 JBL = SmartSpeaker('JBL')
