@@ -25,7 +25,7 @@ class Planeta:
         return self._repr.__repr__()
 brasil = Time('Brasil')
 portugal = Time('Portugal')
-
+argentina = Time('Argentina')
 terra = Planeta('Terra')
 marte = Planeta('Marte')
 
