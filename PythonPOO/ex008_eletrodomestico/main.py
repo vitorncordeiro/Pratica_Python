@@ -15,7 +15,7 @@ class InterfaceUSB:
     @abstractmethod
     def conectar(self):
         self.conectarUSB = True
-class SmartSpeaker(Eletrodomestico, InterfaceUSB):
+class IoTProduct(Eletrodomestico, InterfaceUSB):
     def __init__(self, nome):
         super().__init__(nome)
     def ligar(self):
@@ -27,7 +27,7 @@ class SmartSpeaker(Eletrodomestico, InterfaceUSB):
     def desconectar(self):
         self.concectarUSB = False
         print('USB desconectado')
-Alexa = SmartSpeaker('Alexa')
+Alexa = IoTProduct('Alexa')
 print(Alexa.nome)
 JBL = SmartSpeaker('JBL')
 print(JBL.nome)
