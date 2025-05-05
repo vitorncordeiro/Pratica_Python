@@ -23,10 +23,19 @@ class Cliente(Pessoa):
         super().__init__(nome, idade)
         self.contaC = None
         self.contaP = None
+listaClientes = []
+p1 = Cliente('Vitor', 18)
+p1.contaC = ContaCorrente(12345, 43210, 10, 1000)
+p1.contaP = ContaPoupanca(56789, 43210, 10)
+p2 = Cliente('Suellen', 18)
+p2.contaP = ContaPoupanca(3912, 98765, 250)
+listaClientes.append(p1)
+listaClientes.append(p2)
+
+
+
+
 if __name__ == '__main__':
-    p1 = Cliente('Vitor', 18)
     print(p1)
-    p1.contaC = ContaCorrente(12345, 54321, 10, 1000)
     print(p1.contaC)
-    p1.contaP = ContaPoupanca(56789, 98765, 10)
     print(p1.contaP)
