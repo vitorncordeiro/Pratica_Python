@@ -38,7 +38,7 @@ class ContaPoupanca(Conta):
             
 class ContaCorrente(Conta):
     def __init__(self, numeroDaConta, agencia, saldo= 0, limite= 0):
-        super().__init__(saldo, numeroDaConta, agencia)
+        super().__init__(numeroDaConta, agencia, saldo)
         self._limite = limite
         
         
@@ -59,8 +59,12 @@ class ContaCorrente(Conta):
         else: 
             self._saldo = self._saldo - valorDeSaque
             return self._saldo
+listaContas = []
+conta1 = ContaCorrente(saldo= 20, numeroDaConta=1234, agencia=43210)
+conta2 = ContaCorrente(saldo= 100, numeroDaConta=123456, agencia=43210)
+listaContas.append(conta1)
+listaContas.append(conta2)
 if __name__ == '__main__':
-    conta1 = ContaCorrente(saldo= 20, numeroDaConta=1234, agencia=4321)
-    conta2 = ContaCorrente(saldo= 100, numeroDaConta=123456, agencia=654321)
+    
     conta1.sacar(21)
     conta2.sacar(50)
