@@ -65,6 +65,7 @@ conta2 = ContaCorrente(saldo= 100, numeroDaConta=123456, agencia=43210)
 conta3 = ContaCorrente(saldo= 300, numeroDaConta=78910, agencia = 02468)
 listaContas.append(conta1)
 listaContas.append(conta2)
+listaContas.append(conta3)
 if __name__ == '__main__':
     
     conta1.sacar(21)
