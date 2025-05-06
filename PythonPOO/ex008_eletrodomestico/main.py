@@ -9,7 +9,7 @@ class Eletrodomestico:
         return self._nome
     @abstractmethod
     def ligar(self):
-        self.ligado = True
+        pass
 class InterfaceUSB:
     def __init__(self, conectarUSB=False):
         self.conectarUSB = conectarUSB
@@ -21,7 +21,7 @@ class IotProduct(Eletrodomestico, InterfaceUSB):
         super().__init__(nome)
     def ligar(self):
         self.ligado = True
-        print('Objeto ligado')
+        print(f'Objeto {self.nome} ligado')
     def conectar(self):
         self.conectarUSB = True
         print('USB conectado')
@@ -32,14 +32,21 @@ class Geladeira(Eletrodomestico):
     def __init__(self, nome):
         super().__init__(nome)
         self.interfaceTomada = False
+    def ligar(self):
+        self.ligado = True
+        print(f'Objeto {self.nome} ligado')
     def conectarTomada(self):
         self.interfaceTomada = True
+        print(f'Tomada de {self.nome} conectada')
     def desconectarTomada(self):
         self.interfaceTomada = False
     
 Alexa = IotProduct('Alexa')
 print(Alexa.nome)
 JBL = IotProduct('JBL')
+Eletrolux = Geladeira('Eletrolux')
+Eletrolux.conectarTomada()
+Eletrolux.ligar()
 print(JBL.nome)
 Alexa.ligar()
 Alexa.conectar()
