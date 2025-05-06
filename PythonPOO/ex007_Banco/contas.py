@@ -62,6 +62,7 @@ class ContaCorrente(Conta):
 listaContas = []
 conta1 = ContaCorrente(saldo= 20, numeroDaConta=1234, agencia=43210)
 conta2 = ContaCorrente(saldo= 100, numeroDaConta=123456, agencia=43210)
+conta3 = ContaCorrente(saldo= 300, numeroDaConta=78910, agencia = 02468)
 listaContas.append(conta1)
 listaContas.append(conta2)
 if __name__ == '__main__':
