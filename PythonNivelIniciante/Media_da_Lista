@@ -1,0 +1,8 @@
+lista = input('Digite os números: ')
+lista = lista.split(sep=' ')
+acc = 0
+c = 0
+while c <= (len(lista) - 1):
+    acc += int(lista[c])
+    c += 1
+print(acc/len(lista))
