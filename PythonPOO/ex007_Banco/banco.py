@@ -26,7 +26,7 @@ class Banco:
         else:
             print('A conta não é desse banco')
             return False
-listaAgencias = [43210, 98765]
+listaAgencias = [43210, 98765, 13579, 02468]
 if __name__ == '__main__':
     itau = Banco(listaAgencias, listaContas, listaClientes)
     for conta in listaContas:
