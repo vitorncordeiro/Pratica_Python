@@ -40,15 +40,13 @@ class Geladeira(Eletrodomestico):
         print(f'Tomada de {self.nome} conectada')
     def desconectarTomada(self):
         self.interfaceTomada = False
-    
-Alexa = IotProduct('Alexa')
-print(Alexa.nome)
-JBL = IotProduct('JBL')
-Eletrolux = Geladeira('Eletrolux')
-Eletrolux.conectarTomada()
-Eletrolux.ligar()
-print(JBL.nome)
-Alexa.ligar()
-Alexa.conectar()
-JBL.ligar()
-JBL.conectar()
+if __name__ == '__main__'    
+    Alexa = IotProduct('Alexa')
+    JBL = IotProduct('JBL')
+    Eletrolux = Geladeira('Eletrolux')
+    Eletrolux.conectarTomada()
+    Eletrolux.ligar()
+    Alexa.ligar()
+    Alexa.conectar()
+    JBL.ligar()
+    JBL.conectar()
