@@ -3,6 +3,7 @@ class Eletrodomestico:
     def __init__(self, nome, ligado=False):
         self._nome = nome
         self.ligado = ligado
+        self.interfaceTomada = None
     @property
     def nome(self):
         return self._nome
@@ -27,6 +28,10 @@ class IotProduct(Eletrodomestico, InterfaceUSB):
     def desconectar(self):
         self.concectarUSB = False
         print('USB desconectado')
+class Geladeira(Eletrodomestico):
+    def __init__(self, nome):
+        super().__init__(nome)
+        
 Alexa = IotProduct('Alexa')
 print(Alexa.nome)
 JBL = IotProduct('JBL')
