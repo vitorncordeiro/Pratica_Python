@@ -31,7 +31,12 @@ class IotProduct(Eletrodomestico, InterfaceUSB):
 class Geladeira(Eletrodomestico):
     def __init__(self, nome):
         super().__init__(nome)
-        
+        self.interfaceTomada = False
+    def conectarTomada(self):
+        self.interfaceTomada = True
+    def desconectarTomada(self):
+        self.interfaceTomada = False
+    
 Alexa = IotProduct('Alexa')
 print(Alexa.nome)
 JBL = IotProduct('JBL')
