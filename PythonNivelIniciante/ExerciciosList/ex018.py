@@ -17,13 +17,14 @@ while True:
     contadorDeVotos += 1
 
     if numeroEscolhido == 0:
-        jogadores_votados = []
-        for voto in jogadores_e_votos:
-            if voto > 0:
-                jogadores_votados.append(jogadores_e_votos)
+        
         print(f'\nResultado da votação:\n {jogadores_votados}')
         break
-
+jogadores_votados = []
+for lista in jogadores_e_votos:
+    if lista[1] > 0:
+        for i in range(len(jogadores_e_votos)):
+            jogadores_votados.append(jogadores_e_votos[i])
     
     
     
