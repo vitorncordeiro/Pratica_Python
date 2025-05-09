@@ -1,16 +1,30 @@
+jogadores_e_votos = []
+contadorDeVotos = 0
 while True:
-    jogadores_e_votos = [[f'Jogador número {i}' for i in range(1, 24)]]
-    numeroEscolhido = input("Digite o número da camiseta do jogador que deseja votar: ")
-    if numeroEscolhido == "0":
-        print('Encerrando...')
-        break
-    elif numeroEscolhido.isnumeric() == False:
+    
+    numeroEscolhido = input("Número do jogador (0=fim): ")
+    if numeroEscolhido.isnumeric() == False:
         print('Informe um número ')
     else:
         numeroEscolhido = int(numeroEscolhido)
         if numeroEscolhido > 23 or numeroEscolhido < 0:
             print("Informe um valor entre 1 e 23 ou 0 para sair!")
-    jogadores_e_votos[numeroEscolhido]
+
+    for i in range(1, 24):
+        jogadores_e_votos.append([f'Jogador nº {i}', 0])
+
+    jogadores_e_votos[numeroEscolhido - 1][1] + 1
+    contadorDeVotos += 1
+
+    if numeroEscolhido == 0:
+        jogadores_votados = []
+        for voto in jogadores_e_votos:
+            if voto > 0:
+                jogadores_votados.append(jogadores_e_votos)
+        print(f'\nResultado da votação:\n {jogadores_votados}')
+        break
+
+    
     
     
         
