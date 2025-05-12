@@ -22,22 +22,14 @@ vendedores = [['Vendedor 1', 3000], ["Vendedor 2", 2000], ["Vendedor 3", 1000], 
 listaIntervalos = [["a"], ["b"], ["c"], ["d"], ["e"], ["f"], ["g"], ["h"], ["i"]]
 for vendedor in vendedores:
     salario = VALOR_SEMANAL + (TAXA_ADICIONAL * vendedor[1])
-    if salario <= 299:
-        listaIntervalos[0].append(f"{salario:.2f}")
-    elif salario >= 300 and salario <= 399:
-        listaIntervalos[1].append(f"{salario:.2f}")
-    elif salario>= 400 and salario <= 499:
-        listaIntervalos[2].append(f"{salario:.2f}")
-    elif salario >= 500 and salario <= 599:
-        listaIntervalos[3].append(f"{salario:.2f}")
-    elif salario >= 600 and salario <= 699:
-        listaIntervalos[4].append(f"{salario:.2f}")
-    elif salario >= 700 and salario <= 799:
-        listaIntervalos[5].append(f"{salario:.2f}")
-    elif salario >= 800 and salario <= 899:
-        listaIntervalos[6].append(f"{salario:.2f}")
-    elif salario >= 900 and salario <= 999:
-        listaIntervalos[7].append(f"{salario:.2f}")
-    else:
+    faixas = 8
+    faixaMinimaInicial = 200
+    faixaMaximaInicial = 299
+    for i in range(faixas): #deixa de fora a faixa i, pq é 1000+ sem faixa máxima
+        if salario >= faixaMinimaInicial and salario <= faixaMaximaInicial:
+            listaIntervalos[i].append(f"{salario:.2f}")
+        faixaMaximaInicial += 100
+        faixaMinimaInicial += 100
+    if salario > 1000:
         listaIntervalos[8].append(f"{salario:.2f}")
 print(*listaIntervalos)
