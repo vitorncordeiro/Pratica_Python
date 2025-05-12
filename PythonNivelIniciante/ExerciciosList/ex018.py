@@ -1,3 +1,6 @@
+from pathlib import Path
+caminho = Path(__file__).parent / 'save.txt'
+
 jogadores_e_votos = []
 contadorDeVotos = 0
 while True:
@@ -21,11 +24,22 @@ while True:
 
     
 jogadores_votados = []
-for par in jogadores_e_votos:
-    if par[1] > 0:
-        jogadores_votados.append(par)
-#falta formatar a mensagem pra ficar igual no código exemplo
-msgFormatada = f"Foram registrados {contadorDeVotos} votos.\n"
-    
-        
+for parValores in jogadores_e_votos:
+    if parValores[1] > 0:
+        jogadores_votados.append(parValores)
+jogadores_votados.sort(reverse=True, key=lambda a: a[1])
+msgFormatada = f"Foram computados {contadorDeVotos} votos.\n\nJogador:        Votos:        %"
 
+def calcularPercentual(nvotos, TotalVotos):
+    resultado = nvotos/TotalVotos*100
+    return resultado
+for jogador in jogadores_votados:
+    msgFormatada = msgFormatada + f"\n{jogador[0]}        {jogador[1]}        {calcularPercentual(jogador[1], contadorDeVotos):.2f}"
+jogadorMaisVotado = max(jogadores_votados, key=lambda a: a[1])    
+msgFinal = f"{msgFormatada}\nO melhor jogador foi o {jogadorMaisVotado[0]}, com "\
+        f"{jogadorMaisVotado[1]} votos, correspondendo a {calcularPercentual(jogadorMaisVotado[1], contadorDeVotos):.2f}% do total de votos"
+print(msgFinal)
+
+with open(caminho, 'w+', encoding='UTF-8') as arquivo:
+    arquivo.write(msgFinal)
+        
