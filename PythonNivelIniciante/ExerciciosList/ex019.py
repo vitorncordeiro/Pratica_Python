@@ -17,6 +17,7 @@ while True:
         numeroEscolhido = int(numeroEscolhido)
         if numeroEscolhido > 6 or numeroEscolhido < 0:
             print("Informe um valor entre 1 e 6 ou 0 para sair!")
+            continue
     if numeroEscolhido == 0:
         print(f'\nResultado da votação:')
         break
@@ -30,16 +31,16 @@ for parValores in sistemasEVotos:
     if parValores[1] > 0:
         sistemasVotados.append(parValores)
 sistemasVotados.sort(reverse=True, key=lambda a: a[1])
-msgFormatada = f"Foram computados {contadorDeVotos} votos.\n\nJogador:        Votos:        %"
+msgFormatada = f"Foram computados {contadorDeVotos} votos.\n\nSistema Operacional:          Votos:        %"
 
 def calcularPercentual(nvotos, TotalVotos):
     resultado = nvotos/TotalVotos*100
     return resultado
-for jogador in sistemasVotados:
-    msgFormatada = msgFormatada + f"\n{jogador[0]}        {jogador[1]}        {calcularPercentual(jogador[1], contadorDeVotos):.2f}"
-jogadorMaisVotado = max(sistemasVotados, key=lambda a: a[1])    
-msgFinal = f"{msgFormatada}\nO melhor jogador foi o {jogadorMaisVotado[0]}, com "\
-        f"{jogadorMaisVotado[1]} votos, correspondendo a {calcularPercentual(jogadorMaisVotado[1], contadorDeVotos):.2f}% do total de votos"
+for sistema in sistemasVotados:
+    msgFormatada = msgFormatada + f"\n{sistema[0]}          {sistema[1]}        {calcularPercentual(sistema[1], contadorDeVotos):.2f}"
+sistemaMaisVotado = max(sistemasVotados, key=lambda a: a[1])    
+msgFinal = f"{msgFormatada}\nTotal          {contadorDeVotos}\nO Sistema Operacional mais votado foi o {sistemaMaisVotado[0]}, com "\
+        f"{sistemaMaisVotado[1]} votos, correspondendo a {calcularPercentual(sistemaMaisVotado[1], contadorDeVotos):.2f}% do total de votos"
 print(msgFinal)
 
 
