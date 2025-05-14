@@ -12,11 +12,10 @@ while True:
     for unidades in ano_luz:
         print(unidades) 
     print('--------------')
-    valorPConversao = int(input("Valor a ser convertido: "))
+    valorPConversao = float(input("Valor a ser convertido: "))
     unidadeOrigem = (input("Converter de: "))
     unidadeDestino = (input("Converter para: "))
-    valorConvertido = 0
 
-    conversaoPraAl = ano_luz[unidadeOrigem] * ano_luz["al"] * valorPConversao
-    valorConvertido = conversaoPraAl * ano_luz[unidadeDestino] 
-    print(f"Conversão de {valorPConversao} {unidadeOrigem} = {valorConvertido} {unidadeDestino}")
+
+    X =( ano_luz[unidadeDestino] * valorPConversao)/ ano_luz[unidadeOrigem]
+    print(f"Conversão de {valorPConversao} {unidadeOrigem} = {X} {unidadeDestino}")
