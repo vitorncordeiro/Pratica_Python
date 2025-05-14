@@ -9,7 +9,7 @@ meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril',\
          'Maio', 'Junho', 'Julho', 'Agosto',
          'Setembro', 'Outubro', 'Novembro', 'Dezembro']
 dictMesesValores = {}
-contadorVendas = 0
+
 while True:
     mes = input('Digite o mês: ')
     if mes == "Q":
@@ -19,7 +19,10 @@ while True:
         continue
     
     valorVenda = int(input('Digite o valor da venda: '))
-
-    dictMesesValores[mes] = valores.append(valorVenda)
-
+    if mes in dictMesesValores:
+        dictMesesValores[mes] += valorVenda
+    else:
+        dictMesesValores[mes] = valorVenda
+    
+    contadorVendas += 1
 print(dictMesesValores)
