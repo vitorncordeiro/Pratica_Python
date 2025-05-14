@@ -17,28 +17,21 @@ while True:
     elif pedido not in cardapio:
         print('Item não localizado no cardápio')
         continue
-
-    pedidoAtual = {'pao': 0, 'hamburguer': 0, 'tomate': 0, 'bacon': 0, 'ovo': 0} 
-    
+    ingredientesUsados = {'pao': 0, 'hamburguer': 0, 'tomate': 0, 'bacon': 0, 'ovo': 0}
+    pedidosaiu = True
     for ingrediente in cardapio[pedido]:
         if estoque[ingrediente] > 0:
-            pedidoAtual[ingrediente] += 1
+            estoque[ingrediente] -= 1
+            ingredientesUsados[ingrediente] += 1
         else:
-            print(f'Infelizmente acabou o {ingrediente}')
-    controle = True
+            print(f"Infelizmente acabou o {ingrediente}")
+            for key, values in ingredientesUsados.items():
+                estoque[key] += 1
+                ingredientesUsados[key] -= 1
+            pedidosaiu = False
+    if pedidosaiu:        
+        print(f"{pedido} saindo no capricho!!!") 
+    print(estoque)
     
-    for key, qunatidadeIngrediente in pedidoAtual.items():
-        if qunatidadeIngrediente <= estoque[key]:
-            pass
-        else:
-            controle = False
     
-    if controle == True:
-        print(f"um {pedido} saindo no capricho!!!")
-        for chave, valor in pedidoAtual.items():
-            estoque[chave] -= pedidoAtual[chave] 
-        print(estoque)
-    else:
-        print(f'Infelizmente acabou o {ingrediente}')
-
 
