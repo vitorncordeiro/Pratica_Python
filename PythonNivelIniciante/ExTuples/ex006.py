@@ -31,7 +31,7 @@ while True:
             pedidosaiu = False
     if pedidosaiu:        
         print(f"{pedido} saindo no capricho!!!") 
-    print(estoque)
+    
     
     
 
