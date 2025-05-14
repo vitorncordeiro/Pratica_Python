@@ -1,4 +1,4 @@
-estoque = {'pao': 5, 'hamburguer': 5, 'tomate': 5, 'bacon': 5, 'ovo': 5}
+estoque = {'pao': 10, 'hamburguer': 12, 'tomate': 5, 'bacon': 5, 'ovo': 5}
 cardapio = {
 'x-burguer': ['pao', 'hamburguer'],
 'x-salada': ['pao', 'hamburguer', 'tomate'],
