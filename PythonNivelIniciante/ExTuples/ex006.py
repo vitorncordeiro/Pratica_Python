@@ -1,4 +1,4 @@
-estoque = {'pao': 10, 'hamburguer': 12, 'tomate': 5, 'bacon': 5, 'ovo': 5}
+estoque = {'pao': 5, 'hamburguer': 5, 'tomate': 5, 'bacon': 5, 'ovo': 5}
 cardapio = {
 'x-burguer': ['pao', 'hamburguer'],
 'x-salada': ['pao', 'hamburguer', 'tomate'],
@@ -18,20 +18,25 @@ while True:
         print('Item não localizado no cardápio')
         continue
     ingredientesUsados = {'pao': 0, 'hamburguer': 0, 'tomate': 0, 'bacon': 0, 'ovo': 0}
+    faltantes = []
     pedidosaiu = True
     for ingrediente in cardapio[pedido]:
         if estoque[ingrediente] > 0:
             estoque[ingrediente] -= 1
             ingredientesUsados[ingrediente] += 1
+            
         else:
-            print(f"Infelizmente acabou o {ingrediente}")
-            for key, values in ingredientesUsados.items():
-                estoque[key] += 1
-                ingredientesUsados[key] -= 1
+            faltantes.append(ingrediente)
+            for chave, valor in ingredientesUsados.items():
+                estoque[chave] += valor
+                ingredientesUsados[chave] -= valor
             pedidosaiu = False
+            break
     if pedidosaiu:        
         print(f"{pedido} saindo no capricho!!!") 
+    else:
+        for ing in faltantes:
+            print(f"Infelizmente acabou o {ing}")
+    print(estoque)
     
     
-    
-
