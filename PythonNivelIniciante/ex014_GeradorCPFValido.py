@@ -5,7 +5,7 @@ for z in range(9):
     cpfDoUsuario += str(random.randint(0, 9))
 
 
-listaCPF = list(cpfDoUsuario[:9]) #Transforma o string do cpf em uma lista, para ser manipulada
+listaCPF = list(cpfDoUsuario[:9]) #Transforma o string do cpf em uma lista, paara ser manipulada
 listaDigitosUmMultiplicados = []
 listaDigitosDoisMultiplicados = []
 somaDigitosUm = 0
